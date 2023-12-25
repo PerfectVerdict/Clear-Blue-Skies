@@ -1,0 +1,30 @@
+html {
+    height: 100vh;
+    background-image: url('BEAUTIFUL-AI-GENERATED-WALLPAPER-1302023.png');
+    background-size: cover; /* or "contain" based on your preference */
+    background-repeat: no-repeat;
+}
+
+/* Additional styles for smaller screens */
+@media (max-width: 1050px) {
+    html {
+        background-size:auto; /* Adjust for smaller screens if needed */
+    }
+}
+@media (max-width: 1014px) {
+    html {
+        background-size:auto; /* Adjust for smaller screens if needed */
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        background-size:auto; /* Adjust for smaller screens if needed */
+    }
+}
+
+@media (max-width: 510px) {
+    html {
+        background-size:auto; /* Adjust for smaller screens if needed */
+    }
+}

@@ -2,11 +2,12 @@
 //! and call it the the next day because technically it is. The rest of the temps are set for noons forecast.
 const key = "78c13c7d14026703c4632a7298ef5634"
 let main = $('main')
+
 let nameOfCity = $('#searchCity').val()
 // create cards container
 let cardsContainer = $('<div>').attr("id", "cardContainer").css({
     "padding": "40px",
-    "background-color": "white",
+    // "background-color": "white",
     "color": "white",
     "display": "flex",
     "height": "fit-content",
@@ -42,30 +43,37 @@ function kelvinToFahrenheit(kelvin) {
 // creates cards, & simple styling of cards.
         let dayOne = $('<div>').attr("id", "dayOne")
         dayOne.css({
-            "background-color": "black",
-            "padding": "10px"
+            "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
+            "backdrop-filter": "blur(8px)", // This be the blur
+            "padding": "30px",
+
             
         })
         let dayTwo = $('<div>').attr("id", "dayTwo")
         dayTwo.css({
-            "background-color": "black",
-            "padding": "10px"
+            "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
+            "backdrop-filter": "blur(8px)", // This be the blur
+            "padding": "30px"
         })
         let dayThree = $('<div>').attr("id", "dayThree")
         
         dayThree.css({
-            "background-color": "black",
-            "padding": "10px"
+            "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
+            "backdrop-filter": "blur(8px)", // This be the blur
+            "padding": "30px"
+
         })
         let dayFour = $('<div>').attr("id", "dayFour")
         dayFour.css({
-            "background-color": "black",
-            "padding": "10px"
+            "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
+            "backdrop-filter": "blur(8px)", // This be the blur
+            "padding": "30px"
         })
         let dayFive = $('<div>').attr("id", "dayFive")
         dayFive.css({
-            "background-color": "black",
-            "padding": "10px"
+            "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
+            "backdrop-filter": "blur(8px)", // This be the blur
+            "padding": "30px"
         })
 // appends cards to the container
         cardsContainer.append(dayOne)
@@ -107,11 +115,10 @@ function kelvinToFahrenheit(kelvin) {
             let humidity = data.list[0].main.humidity;
             
 // 2. put variables into cards
-dayOne.append(succinct)
-dayOne.append(`<p>Date: ${formattedDate}</p><p>Temperature: ${tempFahrenheit.toFixed(2)}</p>`);
-dayOne.append(imgForIcon).append(descr)
-
-dayOne.append(`<p>Wind: ${wind}</p><p>Humidity: ${humidity}</p>`);
+            dayOne.append(succinct)
+            dayOne.append(`<p>Date: ${formattedDate}</p><p>Temperature: ${tempFahrenheit.toFixed(2)}</p>`);
+            dayOne.append(imgForIcon).append(descr)
+            dayOne.append(`<p>Wind: ${wind}</p><p>Humidity: ${humidity}</p>`);
 //! DAY TWO
             let date2 = new Date(data.list[5].dt_txt);
             let formattedDate2 = date2.toLocaleDateString();
@@ -126,15 +133,17 @@ dayOne.append(`<p>Wind: ${wind}</p><p>Humidity: ${humidity}</p>`);
             let wind2 = data.list[5].wind.speed;
             let humidity2 = data.list[5].main.humidity;
             dayTwo.append(succinct2)
-            dayTwo.append(`<p>Date: ${formattedDate2}</p><p>Temperature: ${tempFahrenheit2.toFixed(2)}</p><p>Wind: ${wind2}</p><p>Humidity: ${humidity2}</p>`);
+            dayTwo.append(`<p>Date: ${formattedDate2}</p><p>Temperature: ${tempFahrenheit2.toFixed(2)}</p>`);
             dayTwo.append(imgForIcon2).append(descr2)
-            //! DAY THREE
+            dayTwo.append(`<p>Wind: ${wind2}</p><p>Humidity: ${humidity2}</p>`)
+//! DAY THREE
             let date3 = new Date(data.list[13].dt_txt);
             let formattedDate3 = date3.toLocaleDateString();
             let tempKelvin3 = data.list[13].main.temp;
             let tempFahrenheit3 = kelvinToFahrenheit(tempKelvin3);
             let wind3 = data.list[13].wind.speed;
             let humidity3 = data.list[13].main.humidity;
+
             dayThree.append(`<p>Date: ${formattedDate3}</p><p>Temperature: ${tempFahrenheit3.toFixed(2)}</p><p>Wind: ${wind3}</p><p>Humidity: ${humidity3}</p>`);
 //! DAY FOUR
             let date4 = new Date(data.list[21].dt_txt);
@@ -153,10 +162,7 @@ dayOne.append(`<p>Wind: ${wind}</p><p>Humidity: ${humidity}</p>`);
             let humidity5 = data.list[25].main.humidity;
             dayFive.append(`<p>Date: ${formattedDate5}</p><p>Temperature: ${tempFahrenheit5.toFixed(2)}</p><p>Wind: ${wind5}</p><p>Humidity: ${humidity5}</p>`);
             console.log(data)
-            //! TODO ADD DAY 6
-//! TODO ADD ICON
-//! ADD LOCAL STORAGE
-//! STYLE
+
         })
         })
     }
