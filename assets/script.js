@@ -95,25 +95,44 @@ function kelvinToFahrenheit(kelvin) {
 //convert kelvin to fehreinheit
             let tempKelvin = data.list[0].main.temp;
             let tempFahrenheit = kelvinToFahrenheit(tempKelvin);
+            let icon = data.list[0].weather[0].icon
+            let succinct = data.list[0].weather[0].main
+            console.log(succinct)
+            let descr = data.list[0].weather[0].description
+            let imgForIcon = $("<img>")
+            imgForIcon.attr("src", "http://openweathermap.org/img/w/" + icon + ".png")
             let wind = data.list[0].wind.speed;
             let humidity = data.list[0].main.humidity;
+            
 // 2. put variables into cards
-            dayOne.append(`<p>Date: ${formattedDate}</p><p>Temperature: ${tempFahrenheit.toFixed(2)}</p><p>Wind: ${wind}</p><p>Humidity: ${humidity}</p>`);
+dayOne.append(succinct)
+dayOne.append(`<p>Date: ${formattedDate}</p><p>Temperature: ${tempFahrenheit.toFixed(2)}</p>`);
+dayOne.append(imgForIcon).append(descr)
+
+dayOne.append(`<p>Wind: ${wind}</p><p>Humidity: ${humidity}</p>`);
 //! DAY TWO
             let date2 = new Date(data.list[5].dt_txt);
             let formattedDate2 = date2.toLocaleDateString();
             let tempKelvin2 = data.list[5].main.temp;
             let tempFahrenheit2 = kelvinToFahrenheit(tempKelvin2);
+            let icon2 = data.list[5].weather[0].icon
+            let succinct2 = data.list[5].weather[0].main
+            console.log(succinct)
+            let descr2 = data.list[5].weather[0].description
+            let imgForIcon2 = $("<img>")
+            imgForIcon2.attr("src", "http://openweathermap.org/img/w/" + icon2 + ".png")
             let wind2 = data.list[5].wind.speed;
             let humidity2 = data.list[5].main.humidity;
+            dayTwo.append(succinct2)
             dayTwo.append(`<p>Date: ${formattedDate2}</p><p>Temperature: ${tempFahrenheit2.toFixed(2)}</p><p>Wind: ${wind2}</p><p>Humidity: ${humidity2}</p>`);
-//! DAY THREE
-            let date3 = new Date(data.list[15].dt_txt);
+            dayTwo.append(imgForIcon2).append(descr2)
+            //! DAY THREE
+            let date3 = new Date(data.list[13].dt_txt);
             let formattedDate3 = date3.toLocaleDateString();
-            let tempKelvin3 = data.list[15].main.temp;
+            let tempKelvin3 = data.list[13].main.temp;
             let tempFahrenheit3 = kelvinToFahrenheit(tempKelvin3);
-            let wind3 = data.list[15].wind.speed;
-            let humidity3 = data.list[15].main.humidity;
+            let wind3 = data.list[13].wind.speed;
+            let humidity3 = data.list[13].main.humidity;
             dayThree.append(`<p>Date: ${formattedDate3}</p><p>Temperature: ${tempFahrenheit3.toFixed(2)}</p><p>Wind: ${wind3}</p><p>Humidity: ${humidity3}</p>`);
 //! DAY FOUR
             let date4 = new Date(data.list[21].dt_txt);
@@ -124,14 +143,15 @@ function kelvinToFahrenheit(kelvin) {
             let humidity4 = data.list[21].main.humidity;
             dayFour.append(`<p>Date: ${formattedDate4}</p><p>Temperature: ${tempFahrenheit4.toFixed(2)}</p><p>Wind: ${wind4}</p><p>Humidity: ${humidity4}</p>`);
 //! DAY FIVE
-            let date5 = new Date(data.list[29].dt_txt);
+            let date5 = new Date(data.list[25].dt_txt);
             let formattedDate5 = date5.toLocaleDateString();
-            let tempKelvin5 = data.list[29].main.temp;
+            let tempKelvin5 = data.list[25].main.temp;
             let tempFahrenheit5 = kelvinToFahrenheit(tempKelvin5);
-            let wind5 = data.list[29].wind.speed;
-            let humidity5 = data.list[29].main.humidity;
+            let wind5 = data.list[25].wind.speed;
+            let humidity5 = data.list[25].main.humidity;
             dayFive.append(`<p>Date: ${formattedDate5}</p><p>Temperature: ${tempFahrenheit5.toFixed(2)}</p><p>Wind: ${wind5}</p><p>Humidity: ${humidity5}</p>`);
-//! TODO ADD DAY 6
+            console.log(data)
+            //! TODO ADD DAY 6
 //! TODO ADD ICON
 //! ADD LOCAL STORAGE
 //! STYLE
