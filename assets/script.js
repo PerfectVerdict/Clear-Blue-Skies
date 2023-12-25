@@ -1,3 +1,4 @@
+// At them moment, the tempature forecasted will be for six pm.
 const key = "78c13c7d14026703c4632a7298ef5634"
 let main = $('main')
 let nameOfCity = $('#searchCity').val()
@@ -27,10 +28,12 @@ function kelvinToFahrenheit(kelvin) {
     })
     .then(function (data) {
 // name creation
-        console.log(nameOfCity)
 // append name to a newly created section
         let nameSection = $('<section>')
-        $(nameSection).append(nameOfCity)
+        nameSection.css({
+            "color": "black"
+        })
+        $(nameSection).append(city)
 // append section to main
         main.append(nameSection)
 
@@ -128,7 +131,10 @@ function kelvinToFahrenheit(kelvin) {
             let wind5 = data.list[29].wind.speed;
             let humidity5 = data.list[29].main.humidity;
             dayFive.append(`<p>Date: ${formattedDate5}</p><p>Temperature: ${tempFahrenheit5.toFixed(2)}</p><p>Wind: ${wind5}</p><p>Humidity: ${humidity5}</p>`);
-        
+//! TODO ADD DAY 6
+//! TODO ADD ICON
+//! ADD LOCAL STORAGE
+//! STYLE
         })
         })
     }
