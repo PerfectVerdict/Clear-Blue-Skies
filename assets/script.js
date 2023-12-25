@@ -1,13 +1,12 @@
 const key = "78c13c7d14026703c4632a7298ef5634"
 
 // the search form
-let main = $('main').css({
-    "display": "flex"
-})
+let main = $('main')
 
 // card container
 let cardsContainer = $('<div>').attr("id", "cardContainer").css({
     "background-color": "red",
+    "display": "flex"
 })
 
 let divForSearch = $('<div>')
@@ -30,7 +29,9 @@ function getData(city, state) {
     .then(function (data) {
 //! name creation
         let name = (data[0].name)
-        $(main).append(name)
+        let nameSection = $('<section>')
+        $(nameSection).append(name)
+        main.append(nameSection)
 //! day one card
         let dayOne = $('<div>')
         cardsContainer.append(dayOne)
