@@ -39,6 +39,7 @@ function kelvinToFahrenheit(kelvin) {
         dayOne.css({
             "background-color": "black",
             "padding": "10px"
+            
         })
         let dayTwo = $('<div>').attr("id", "dayTwo")
         dayTwo.css({
@@ -80,6 +81,7 @@ function kelvinToFahrenheit(kelvin) {
         .then(function (data) {
 
 // after we get the coordinates we can plug them into the api:
+//! DAY ONE
 // 1. put JSON contents into variables.
 // store date in a variable
             let dateStr = data.list[0].dt_txt;
@@ -90,48 +92,50 @@ function kelvinToFahrenheit(kelvin) {
 //convert kelvin to fehreinheit
             let tempKelvin = data.list[0].main.temp;
             let tempFahrenheit = kelvinToFahrenheit(tempKelvin);
-
             let wind = data.list[0].wind.speed;
             let humidity = data.list[0].main.humidity;
 // 2. put variables into cards
             dayOne.append(`<p>Date: ${formattedDate}</p><p>Temperature: ${tempFahrenheit.toFixed(2)}</p><p>Wind: ${wind}</p><p>Humidity: ${humidity}</p>`);
-// DAY TWO
-            let date2 = new Date(data.list[2].dt_txt);
+//! DAY TWO
+            let date2 = new Date(data.list[5].dt_txt);
             let formattedDate2 = date2.toLocaleDateString();
-            let tempKelvin2 = data.list[2].main.temp;
+            let tempKelvin2 = data.list[5].main.temp;
             let tempFahrenheit2 = kelvinToFahrenheit(tempKelvin2);
-            let wind2 = data.list[2].wind.speed;
-            let humidity2 = data.list[2].main.humidity;
+            let wind2 = data.list[5].wind.speed;
+            let humidity2 = data.list[5].main.humidity;
             dayTwo.append(`<p>Date: ${formattedDate2}</p><p>Temperature: ${tempFahrenheit2.toFixed(2)}</p><p>Wind: ${wind2}</p><p>Humidity: ${humidity2}</p>`);
-// DAY THREE
-            let date3 = new Date(data.list[10].dt_txt);
+//! DAY THREE
+            let date3 = new Date(data.list[15].dt_txt);
             let formattedDate3 = date3.toLocaleDateString();
-            let tempKelvin3 = data.list[10].main.temp;
+            let tempKelvin3 = data.list[15].main.temp;
             let tempFahrenheit3 = kelvinToFahrenheit(tempKelvin3);
-            let wind3 = data.list[10].wind.speed;
-            let humidity3 = data.list[10].main.humidity;
+            let wind3 = data.list[15].wind.speed;
+            let humidity3 = data.list[15].main.humidity;
             dayThree.append(`<p>Date: ${formattedDate3}</p><p>Temperature: ${tempFahrenheit3.toFixed(2)}</p><p>Wind: ${wind3}</p><p>Humidity: ${humidity3}</p>`);
-// DAY FOUR
-            let date4 = new Date(data.list[18].dt_txt);
+//! DAY FOUR
+            let date4 = new Date(data.list[21].dt_txt);
             let formattedDate4 = date4.toLocaleDateString();
-            let tempKelvin4 = data.list[18].main.temp;
+            let tempKelvin4 = data.list[21].main.temp;
             let tempFahrenheit4 = kelvinToFahrenheit(tempKelvin4);
-            let wind4 = data.list[18].wind.speed;
-            let humidity4 = data.list[18].main.humidity;
+            let wind4 = data.list[21].wind.speed;
+            let humidity4 = data.list[21].main.humidity;
             dayFour.append(`<p>Date: ${formattedDate4}</p><p>Temperature: ${tempFahrenheit4.toFixed(2)}</p><p>Wind: ${wind4}</p><p>Humidity: ${humidity4}</p>`);
-// DAY FIVE
-            let date5 = new Date(data.list[26].dt_txt);
+//! DAY FIVE
+            let date5 = new Date(data.list[29].dt_txt);
             let formattedDate5 = date5.toLocaleDateString();
-            let tempKelvin5 = data.list[26].main.temp;
+            let tempKelvin5 = data.list[29].main.temp;
             let tempFahrenheit5 = kelvinToFahrenheit(tempKelvin5);
-            let wind5 = data.list[26].wind.speed;
-            let humidity5 = data.list[26].main.humidity;
+            let wind5 = data.list[29].wind.speed;
+            let humidity5 = data.list[29].main.humidity;
             dayFive.append(`<p>Date: ${formattedDate5}</p><p>Temperature: ${tempFahrenheit5.toFixed(2)}</p><p>Wind: ${wind5}</p><p>Humidity: ${humidity5}</p>`);
+        
         })
         })
     }
 
 $("#searchButton").on("click", function(){
+// grab city and state so we can use it in getData() by getting the latitude and longitude
+// of each city, which can be used to get the weather from the seperate api.
     let city = $("#searchCity").val()
     let state = $("#searchState").val()
     getData(city, state)
