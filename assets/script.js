@@ -10,10 +10,12 @@ let cardsContainer = $('<div>').attr("id", "cardContainer").css({
     // "background-color": "white",
     "color": "white",
     "display": "flex",
-    "height": "fit-content",
+    // "height": "400px",
+    // "width": "300px",
     "flex-wrap": "wrap",
-    "justify-content": "space-between",
+    "justify-content": "space-evenly",
     "margin-top": "20px",
+    "gap":"10px",
     
 })
 // convert kelvin to fahrenheit function
@@ -49,13 +51,13 @@ function kelvinToFahrenheit(kelvin) {
 
             
         })
-        let dayTwo = $('<div>').attr("id", "dayTwo")
+        let dayTwo = $('<div>').attr("id", "dayTwo").attr("class", "card")
         dayTwo.css({
             "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
             "backdrop-filter": "blur(8px)", // This be the blur
-            "padding": "30px"
+            "padding": "30px",
         })
-        let dayThree = $('<div>').attr("id", "dayThree")
+        let dayThree = $('<div>').attr("id", "dayThree").attr("class", "card")
         
         dayThree.css({
             "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
@@ -63,13 +65,13 @@ function kelvinToFahrenheit(kelvin) {
             "padding": "30px"
 
         })
-        let dayFour = $('<div>').attr("id", "dayFour")
+        let dayFour = $('<div>').attr("id", "dayFour").attr("class", "card")
         dayFour.css({
             "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
             "backdrop-filter": "blur(8px)", // This be the blur
             "padding": "30px"
         })
-        let dayFive = $('<div>').attr("id", "dayFive")
+        let dayFive = $('<div>').attr("id", "dayFive").attr("class", "card")
         dayFive.css({
             "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
             "backdrop-filter": "blur(8px)", // This be the blur

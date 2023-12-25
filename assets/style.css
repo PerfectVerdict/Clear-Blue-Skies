@@ -6,6 +6,11 @@ html {
 }
 
 /* Additional styles for smaller screens */
+@media (max-width: 1095px) {
+    html {
+        background-size:auto; /* Adjust for smaller screens if needed */
+    }
+}
 @media (max-width: 1050px) {
     html {
         background-size:auto; /* Adjust for smaller screens if needed */
