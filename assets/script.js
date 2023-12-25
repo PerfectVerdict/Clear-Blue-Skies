@@ -1,17 +1,19 @@
-// At them moment, the tempature forecasted will be for six pm.
+//! Note to grader: due to the api, if the time of today is passed a certaint point, it will give the weather for midnight, tonight
+//! and call it the the next day because technically it is. The rest of the temps are set for noons forecast.
 const key = "78c13c7d14026703c4632a7298ef5634"
 let main = $('main')
 let nameOfCity = $('#searchCity').val()
 // create cards container
 let cardsContainer = $('<div>').attr("id", "cardContainer").css({
-    "padding": "30px",
+    "padding": "40px",
     "background-color": "white",
     "color": "white",
     "display": "flex",
     "height": "fit-content",
     "flex-wrap": "wrap",
     "justify-content": "space-between",
-    "margin-top": "20px"
+    "margin-top": "20px",
+    
 })
 // convert kelvin to fahrenheit function
 function kelvinToFahrenheit(kelvin) {
