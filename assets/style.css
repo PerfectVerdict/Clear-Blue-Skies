@@ -16,8 +16,17 @@ p {
     text-align: center;
     margin-top: 10px; /* Adjust the margin-top as needed for spacing */
 }
-.cardContent {
+#cont {
 
         text-align: center;
     
+}
+
+#container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.div1, .div2 {
+    border: 1px solid orange;
 }

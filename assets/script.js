@@ -140,8 +140,20 @@ function kelvinToFahrenheit(kelvin) {
                 <div class="cardDate">
                 <p>${unix1Date}</p>
                 </div>
-                    <div id="div1">
+                <div1 id="container">
+                    <div class="div1">
                        
+                        <p>${unix1Time}</p>
+                        <p>${tempFahrenheit.toFixed(2)} F</p>
+                        <div class="column">
+                            <img src="http://openweathermap.org/img/w/${icon}.png" alt="${descr}" style="width: 50px; height: 50px; display: inline;">
+                            <p>${descr}</p>
+                            <p>${wind}</p>
+                            <p>${humidity}</p>
+                        </div>
+                    </div>
+
+                    <div class="div2">
                         <p>${unix1Time}</p>
                         <p>${tempFahrenheit.toFixed(2)} F</p>
                         <div class="column">
@@ -149,15 +161,16 @@ function kelvinToFahrenheit(kelvin) {
                             <p>${descr}</p>
                         </div>
                     </div>
+                </div1>
 
                 `);
 
                 // dayOne.append(imgForIcon).append(descr);
 
                 // Create a new div for icon, wind, and humidity
-                let weatherInfo = $('<div>').addClass('weather-info');
-                weatherInfo.append(`<p>Wind: ${wind}</p><p>Humidity: ${humidity}</p>`);
-                dayOne.append(weatherInfo);
+                // let weatherInfo = $('<div>').addClass('weather-info');
+                // weatherInfo.append(`<p>Wind: ${wind}</p><p>Humidity: ${humidity}</p>`);
+                // dayOne.append(weatherInfo);
 //! DAY TWO
             let unix2 = parseInt(data.list[5].dt)
             let unix2Formatted = new Date(unix2 * 1000)
