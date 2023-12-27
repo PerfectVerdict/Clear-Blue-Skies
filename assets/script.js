@@ -237,6 +237,7 @@ $(document).ready(function () {
     }
 
 
+    let searchArray =[]
 
     $("#searchButton").on("click", function () {
         $("#cardContainer").empty()
@@ -245,6 +246,9 @@ $(document).ready(function () {
         // of each city, which can be used to get the weather from the seperate api.
         let city = $("#searchCity").val()
         let state = $("#searchState").val()
+        searchArray.push(`${city}, ${state}`)
+        console.log(searchArray)
+        
         getData(city, state)
 
     })
