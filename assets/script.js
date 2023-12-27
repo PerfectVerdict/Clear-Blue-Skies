@@ -31,12 +31,10 @@ $(document).ready(function () {
         // Get coords of city and state
         let requestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state}"&limit=1&appid=${key}`;
         fetch(requestUrl)
-
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
                 // name creation
                 // append name to a newly created section
                 let nameSection = $('<section>')
@@ -242,7 +240,7 @@ $(document).ready(function () {
 
     $("#searchButton").on("click", function () {
         $("#cardContainer").empty()
-        $("#nameSection").empty()
+        $("#nameSection").remove()
         // grab city and state so we can use it in getData() by getting the latitude and longitude
         // of each city, which can be used to get the weather from the seperate api.
         let city = $("#searchCity").val()
