@@ -14,7 +14,8 @@ $(document).ready(function () {
     function renderHistory (searchArray) {
         
         for (let i = 0; i < searchArray.length; i++){
-            nameSection.prepend(`$<button>s${searchArray[i]}</button>`)
+            
+            nameSection.append(`<button>${searchArray[i]}</button>`)
         }
     }
     renderHistory(searchArray)
@@ -259,6 +260,11 @@ $(document).ready(function () {
         // of each city, which can be used to get the weather from the seperate api.
         let city = $("#searchCity").val()
         let state = $("#searchState").val()
+        if (!city || !state) {
+            alert("Please enter both city and state.");
+            return; // Stop execution if either city or state is missing
+        }
+        
         searchArray.push(`${city}, ${state}`)
         localStorage.setItem('searchArray', JSON.stringify(searchArray));
         
