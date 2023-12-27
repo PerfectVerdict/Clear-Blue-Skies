@@ -2,10 +2,6 @@
 //! and call it the the next day because technically it is. The rest of the temps are set for noons forecast.
 $(document).ready(function () {
     let nameSection = $('<section>')
-    nameSection.attr("id", "nameSection")
-    nameSection.css({
-        "color": "black"
-    })
     const key = "78c13c7d14026703c4632a7298ef5634"
     let main = $('main')
     let searchArray = []
@@ -15,10 +11,14 @@ $(document).ready(function () {
         
         for (let i = 0; i < searchArray.length; i++){
             
-            nameSection.append(`<button>${searchArray[i]}</button>`)
+            main.append(`<button>${searchArray[i]}</button>`)
         }
     }
     renderHistory(searchArray)
+    nameSection.attr("id", "nameSection")
+    nameSection.css({
+        "color": "black"
+    })
     
     // create cards container
     let cardsContainer = $('<div>').attr("id", "cardContainer").css({
