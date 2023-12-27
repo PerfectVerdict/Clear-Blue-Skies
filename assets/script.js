@@ -6,11 +6,8 @@ $(document).ready(function () {
     let main = $('main')
     let searchArray = []
     searchArray = JSON.parse(localStorage.getItem('searchArray')) || [];
-    
     function renderHistory (searchArray) {
-        
         for (let i = 0; i < searchArray.length; i++){
-            
             main.append(`<button>${searchArray[i]}</button>`)
         }
     }
@@ -51,6 +48,7 @@ $(document).ready(function () {
             return response.json();
         })
         .then(function (data) {
+            
                 // name creation
                 // append name to a newly created section
                 
@@ -125,7 +123,8 @@ $(document).ready(function () {
 
                     })
                     .then(function (data) {
-
+                        
+                        console.log(data)
                         // after we get the coordinates we can plug them into the api:
                         //! DAY ONE 6am, noon, and 6pm.
                         // 1. put JSON contents into variables.
@@ -133,7 +132,13 @@ $(document).ready(function () {
                         // let dateStr = data.list[0].dt_txt;
                         // make it a new date object
                         // let date = new Date(dateStr);
-                        let unix1 = parseInt(data.list[0].dt)
+// 12 = 7am
+//15 = 10am
+//18 = 1pm
+//21 = 4pm
+//0000 = 7pm
+                        // card one. 7am.
+                        let unix1 = parseInt(data.list[4].dt)
                         let unix1Formatted = new Date(unix1 * 1000)
                         let unix1Date = unix1Formatted.toDateString()
                         let unix1Time = unix1Formatted.toLocaleTimeString()
@@ -142,12 +147,12 @@ $(document).ready(function () {
                         // use toLocalDateString() to format the date and remove the timestamp.
                         // let formattedDate = date.toLocaleDateString()
                         //convert kelvin to fehreinheit
-                        let tempKelvin = data.list[0].main.temp;
+                        let tempKelvin = data.list[4].main.temp;
                         let tempFahrenheit = kelvinToFahrenheit(tempKelvin);
-                        let icon = data.list[0].weather[0].icon
-                        let succinct = data.list[0].weather[0].main
-                        console.log(succinct)
-                        let descr = data.list[0].weather[0].description
+                        let icon = data.list[4].weather[0].icon
+                        // let succinct = data.list[6].weather[6].main
+                        // console.log(succinct)
+                        let descr = data.list[4].weather[0].description
                         let imgForIcon = $("<img>")
                         imgForIcon.css({
                             "width": "50px",  // Set your desired width
@@ -155,8 +160,8 @@ $(document).ready(function () {
                             "display": "inline"
                         });
                         imgForIcon.attr("src", "http://openweathermap.org/img/w/" + icon + ".png")
-                        let wind = data.list[0].wind.speed;
-                        let humidity = data.list[0].main.humidity;
+                        let wind = data.list[4].wind.speed;
+                        let humidity = data.list[4].main.humidity;
 
                         // 2. put variables into cards
                         dayOne.append(`
@@ -175,7 +180,7 @@ $(document).ready(function () {
                                 <p>${humidity} % humidity</p>
                             </div>
                         </div>
-
+                        
                         <div class="div2">
                             <p>${unix1Time}</p>
                             <p>${tempFahrenheit.toFixed(2)} F</p>
@@ -272,3 +277,5 @@ $(document).ready(function () {
 
     })
 })
+// 6 9 12 3 6
+
