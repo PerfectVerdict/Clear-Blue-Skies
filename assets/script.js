@@ -1,9 +1,24 @@
 //! Note to grader: due to the api, if the time of today is passed a certaint point, it will give the weather for midnight, tonight
 //! and call it the the next day because technically it is. The rest of the temps are set for noons forecast.
 $(document).ready(function () {
+    let nameSection = $('<section>')
+    nameSection.attr("id", "nameSection")
+    nameSection.css({
+        "color": "black"
+    })
     const key = "78c13c7d14026703c4632a7298ef5634"
     let main = $('main')
-
+    let searchArray = []
+    searchArray = JSON.parse(localStorage.getItem('searchArray')) || [];
+    
+    function renderHistory (searchArray) {
+        
+        for (let i = 0; i < searchArray.length; i++){
+            nameSection.prepend(`$<button>s${searchArray[i]}</button>`)
+        }
+    }
+    renderHistory(searchArray)
+    
     // create cards container
     let cardsContainer = $('<div>').attr("id", "cardContainer").css({
         // "padding": "40px",
@@ -37,11 +52,7 @@ $(document).ready(function () {
         .then(function (data) {
                 // name creation
                 // append name to a newly created section
-                let nameSection = $('<section>')
-                nameSection.attr("id", "nameSection")
-                nameSection.css({
-                    "color": "black"
-                })
+                
                 $(nameSection).append(city)
                 // append section to main
                 main.append(nameSection)
@@ -200,6 +211,7 @@ $(document).ready(function () {
                         dayTwo.append(imgForIcon2).append(descr2)
                         dayTwo.append(`<p>Wind: ${wind2}</p><p>Humidity: ${humidity2}</p>`)
                         //! DAY THREE
+
                         let unix3 = parseInt(data.list[13].dt)
                         let unix3Formatted = new Date(unix3 * 1000)
                         let unix3Date = unix3Formatted.toDateString()
@@ -237,17 +249,18 @@ $(document).ready(function () {
     }
 
 
-    let searchArray =[]
 
+    console.log(searchArray)
     $("#searchButton").on("click", function () {
         $("#cardContainer").empty()
         $("#nameSection").remove()
+        
         // grab city and state so we can use it in getData() by getting the latitude and longitude
         // of each city, which can be used to get the weather from the seperate api.
         let city = $("#searchCity").val()
         let state = $("#searchState").val()
         searchArray.push(`${city}, ${state}`)
-        console.log(searchArray)
+        localStorage.setItem('searchArray', JSON.stringify(searchArray));
         
         getData(city, state)
 
