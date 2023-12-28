@@ -1,19 +1,17 @@
 $(document).ready(function () {
     //This name section is where the searched city will display at the top.
     let nameSection = $('<section>')
-    nameSection.attr("id", "nameSection")
-    nameSection.css({
-        "color": "black"
-    })
     const key = "78c13c7d14026703c4632a7298ef5634"
     let main = $('main')
     //If we can, set search array to the parsed value of local storage key: 'searchArray'. Otherwise, create it.
     searchArray = JSON.parse(localStorage.getItem('searchArray')) || [];
     function renderHistory (searchArray) {
         for (let i = 0; i < searchArray.length; i++){
+
             nameSection.append(`<button>${searchArray[i]}</button>`)
         }}
     renderHistory(searchArray)
+
     // create cards container
     let cardsContainer = $('<div>').attr("id", "cardContainer").css({
         "color": "white",
@@ -62,6 +60,7 @@ $(document).ready(function () {
             return response.json();
         })
         .then(function (data) {
+
                 // name creation. append name to a newly created section. append section to main.
                 $(cardsContainer).append(`<span id="city">${city}</span>`)
                 main.append(cardsContainer)
@@ -322,3 +321,5 @@ $(document).ready(function () {
 
     })
 })
+// 6 9 12 3 6
+
