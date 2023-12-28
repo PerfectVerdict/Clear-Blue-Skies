@@ -1,6 +1,5 @@
-//! Note to grader: due to the api, if the time of today is passed a certaint point, it will give the weather for midnight, tonight
-//! and call it the the next day because technically it is. The rest of the temps are set for noons forecast.
 $(document).ready(function () {
+    //This name section is where the searched city will display at the top.
     let nameSection = $('<section>')
     nameSection.attr("id", "nameSection")
     nameSection.css({
@@ -8,56 +7,61 @@ $(document).ready(function () {
     })
     const key = "78c13c7d14026703c4632a7298ef5634"
     let main = $('main')
-    let searchArray = []
+    //If we can, set search array to the parsed value of local storage key: 'searchArray'. Otherwise, create it.
     searchArray = JSON.parse(localStorage.getItem('searchArray')) || [];
-    
     function renderHistory (searchArray) {
-        
         for (let i = 0; i < searchArray.length; i++){
-            
             nameSection.append(`<button>${searchArray[i]}</button>`)
-        }
-    }
+        }}
     renderHistory(searchArray)
-    
     // create cards container
     let cardsContainer = $('<div>').attr("id", "cardContainer").css({
-        // "padding": "40px",
-        // "background-color": "white",
         "color": "white",
         "display": "flex",
-        // "height": "400px",
-        // "width": "300px",
         "flex-wrap": "wrap",
         "justify-content": "space-around",
         "margin-top": "20px",
         "gap": "10px",
         "flex-direction": "column",
-
     })
-    // convert kelvin to fahrenheit function.
+    // convert kelvin to fahrenheit function. I realized after implementing it that this is an api feature.
     function kelvinToFahrenheit(kelvin) {
         return (kelvin - 273.15) * 9 / 5 + 32;
     }
 
-    // this is the main function. It makes/appends the cards, and puts data in them.
-
+    // This line drops down to reveal a function that was going to get todays weather info but it says that i need a subscription I will put the screenshot in assets.
+    // function getToday (city, state) {
+    //     let requestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state}"&limit=1&appid=${key}`;
+    //     fetch(requestUrl)
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (data) {
+    //         console.log(data)
+    //         console.log("this is the data")
+    //         let long = data[0].lon
+    //         let lat = data[0].lat
+    //         let todayUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude=minutely&appid=${key}`
+    //             fetch(todayUrl)
+    //                 .then(function (response) {
+    //                     return response.json()
+    //                 })
+    //                 .then(function (data) {
+    //                     console.log(data)
+    //                 }) 
+    // })}
+    
     function getData(city, state) {
-        
-        // Get coords of city and state
+        // this is the five day forecast function. It makes and appends the cards to their containers. Get coords of city and state:
         let requestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state}"&limit=1&appid=${key}`;
         fetch(requestUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-                // name creation
-                // append name to a newly created section
-                
+                // name creation. append name to a newly created section. append section to main.
                 $(nameSection).append(city)
-                // append section to main
                 main.append(nameSection)
-
                 // creates cards, & simple styling of cards.
                 let dayOne = $('<div>').attr("id", "dayOne")
                 dayOne.css({
@@ -65,10 +69,6 @@ $(document).ready(function () {
                     "backdrop-filter": "blur(8px)", // This be the blur
                     "padding": "30px",
                     "border-radius": "20px",
-
-
-
-
                 })
                 let dayTwo = $('<div>').attr("id", "dayTwo").attr("class", "card")
                 dayTwo.css({
@@ -100,8 +100,6 @@ $(document).ready(function () {
                     "padding": "30px",
                     "border-radius": "20px",
                 })
-
-
                 // appends cards to the container
                 cardsContainer.append(dayOne)
                 cardsContainer.append(dayTwo)
@@ -109,39 +107,25 @@ $(document).ready(function () {
                 cardsContainer.append(dayFour)
                 cardsContainer.append(dayFive)
                 // appends container to main
-
                 main.append(cardsContainer)
                 // grab latitude and longitude for fetching city weather in weather url, a few lines down
                 let long = data[0].lon
                 let lat = data[0].lat
                 let weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${key}`
                 fetch(weatherUrl)
-
                     .then(function (response) {
-
                         return response.json()
-
-
-
                     })
                     .then(function (data) {
-
-                        // after we get the coordinates we can plug them into the api:
-                        //! DAY ONE 6am, noon, and 6pm.
-                        // 1. put JSON contents into variables.
-                        // store date in a variable
-                        // let dateStr = data.list[0].dt_txt;
-                        // make it a new date object
-                        // let date = new Date(dateStr);
+                        // 1. put JSON contents into variables. // store date in a variable let dateStr = data.list[0].dt_txt; make it a new date object let date = new Date(dateStr); after we get the coordinates we can plug them into the api:      
+//! Day one
                         let unix1 = parseInt(data.list[0].dt)
                         let unix1Formatted = new Date(unix1 * 1000)
                         let unix1Date = unix1Formatted.toDateString()
                         let unix1Time = unix1Formatted.toLocaleTimeString()
                         console.log(unix1Date)
                         console.log(unix1Time)
-                        // use toLocalDateString() to format the date and remove the timestamp.
-                        // let formattedDate = date.toLocaleDateString()
-                        //convert kelvin to fehreinheit
+                        // use toLocalDateString() to format the date and remove the timestamp.let formattedDate = date.toLocaleDateString() convert kelvin to fehreinheit
                         let tempKelvin = data.list[0].main.temp;
                         let tempFahrenheit = kelvinToFahrenheit(tempKelvin);
                         let icon = data.list[0].weather[0].icon
@@ -157,15 +141,12 @@ $(document).ready(function () {
                         imgForIcon.attr("src", "http://openweathermap.org/img/w/" + icon + ".png")
                         let wind = data.list[0].wind.speed;
                         let humidity = data.list[0].main.humidity;
-
-                        // 2. put variables into cards
                         dayOne.append(`
                     <div class="cardDate">
                     <p>${unix1Date}</p>
                     </div>
                     <div1 id="container">
                         <div class="div1">
-                        
                             <p>${unix1Time}</p>
                             <p>${tempFahrenheit.toFixed(2)} F</p>
                             <div class="column">
@@ -175,7 +156,6 @@ $(document).ready(function () {
                                 <p>${humidity} % humidity</p>
                             </div>
                         </div>
-
                         <div class="div2">
                             <p>${unix1Time}</p>
                             <p>${tempFahrenheit.toFixed(2)} F</p>
@@ -184,17 +164,9 @@ $(document).ready(function () {
                                 <p>${descr}</p>
                             </div>
                         </div>
-                    </div1>
+                    </div1>`);
 
-                    `);
-
-                        // dayOne.append(imgForIcon).append(descr);
-
-                        // Create a new div for icon, wind, and humidity
-                        // let weatherInfo = $('<div>').addClass('weather-info');
-                        // weatherInfo.append(`<p>Wind: ${wind}</p><p>Humidity: ${humidity}</p>`);
-                        // dayOne.append(weatherInfo);
-                        //! DAY TWO
+//! DAY TWO
                         let unix2 = parseInt(data.list[5].dt)
                         let unix2Formatted = new Date(unix2 * 1000)
                         let unix2Date = unix2Formatted.toDateString()
@@ -212,7 +184,6 @@ $(document).ready(function () {
                         dayTwo.append(imgForIcon2).append(descr2)
                         dayTwo.append(`<p>Wind: ${wind2}</p><p>Humidity: ${humidity2}</p>`)
                         //! DAY THREE
-
                         let unix3 = parseInt(data.list[13].dt)
                         let unix3Formatted = new Date(unix3 * 1000)
                         let unix3Date = unix3Formatted.toDateString()
@@ -221,7 +192,6 @@ $(document).ready(function () {
                         let tempFahrenheit3 = kelvinToFahrenheit(tempKelvin3);
                         let wind3 = data.list[13].wind.speed;
                         let humidity3 = data.list[13].main.humidity;
-
                         dayThree.append(`<p>Date: ${unix3Date}</p><p>Time: ${unix3Time}</p><p>Temperature: ${tempFahrenheit3.toFixed(2)}</p><p>Wind: ${wind3}</p><p>Humidity: ${humidity3}</p>`);
                         //! DAY FOUR
                         let unix4 = parseInt(data.list[21].dt)
@@ -267,7 +237,7 @@ $(document).ready(function () {
         
         searchArray.push(`${city}, ${state}`)
         localStorage.setItem('searchArray', JSON.stringify(searchArray));
-        
+        getToday(city, state)
         getData(city, state)
 
     })
