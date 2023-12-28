@@ -138,48 +138,48 @@ $(document).ready(function () {
                                         //21 = 4pm
                                         //0000 = 7pm
                         // card one. 10am.
-                        let unix1 = parseInt(data.list[4].dt)
-                        let unix1Formatted = new Date(unix1 * 1000)
-                        let unix1Date = unix1Formatted.toDateString()
-                        let unix1Time = unix1Formatted.toLocaleTimeString()
-                        console.log(unix1Date)
-                        console.log(unix1Time)
-                        // use toLocalDateString() to format the date and remove the timestamp.
-                        // let formattedDate = date.toLocaleDateString()
-                        //convert kelvin to fehreinheit
-                        let tempKelvin1 = data.list[4].main.temp;
-                        let tempFahrenheit1 = kelvinToFahrenheit(tempKelvin1);
-                        let icon1 = data.list[4].weather[0].icon
-                        // let succinct = data.list[6].weather[6].main
-                        // console.log(succinct)
-                        let descr1 = data.list[4].weather[0].description
-                        let imgForIcon1 = $("<img>")
-                        imgForIcon1.css({
-                            "width": "50px",  // Set your desired width
-                            "height": "50px",  // Set your desired height
-                            "display": "inline"
-                        });
-                        imgForIcon1.attr("src", "http://openweathermap.org/img/w/" + icon1 + ".png")
-                        let wind1 = data.list[4].wind.speed;
-                        let humidity1 = data.list[4].main.humidity;
-                        // 2. put variables into cards
-                        dayOne.append(`
-                    <div class="cardDate">
-                    <p>${unix1Date}</p>
-                    </div>
-                    <div id="container">
-                        <div class="div1">
-                        
-                            <p>${unix1Time}</p>
-                            <p>${tempFahrenheit1.toFixed(2)} F</p>
-                            <div class="column">
-                                <img src="http://openweathermap.org/img/w/${icon1}.png" alt="${descr1}" style="width: 50px; height: 50px; display: inline;">
-                                <p>${descr1}</p>
-                                <p>${wind1} mph wind</p>
-                                <p>${humidity1} % humidity</p>
-                            </div>
+                            let unix1 = parseInt(data.list[4].dt)
+                            let unix1Formatted = new Date(unix1 * 1000)
+                            let unix1Date = unix1Formatted.toDateString()
+                            let unix1Time = unix1Formatted.toLocaleTimeString()
+                            console.log(unix1Date)
+                            console.log(unix1Time)
+                            // use toLocalDateString() to format the date and remove the timestamp.
+                            // let formattedDate = date.toLocaleDateString()
+                            //convert kelvin to fehreinheit
+                            let tempKelvin1 = data.list[4].main.temp;
+                            let tempFahrenheit1 = kelvinToFahrenheit(tempKelvin1);
+                            let icon1 = data.list[4].weather[0].icon
+                            // let succinct = data.list[6].weather[6].main
+                            // console.log(succinct)
+                            let descr1 = data.list[4].weather[0].description
+                            let imgForIcon1 = $("<img>")
+                            imgForIcon1.css({
+                                "width": "50px",  // Set your desired width
+                                "height": "50px",  // Set your desired height
+                                "display": "inline"
+                            });
+                            imgForIcon1.attr("src", "http://openweathermap.org/img/w/" + icon1 + ".png")
+                            let wind1 = data.list[4].wind.speed;
+                            let humidity1 = data.list[4].main.humidity;
+                            // 2. put variables into cards
+                            dayOne.append(`
+                        <div class="cardDate">
+                        <p>${unix1Date}</p>
                         </div>
-                    `);
+                        <div id="container">
+                            <div class="div1">
+                            
+                                <p>${unix1Time}</p>
+                                <p>${tempFahrenheit1.toFixed(2)} F</p>
+                                <div class="column">
+                                    <img src="http://openweathermap.org/img/w/${icon1}.png" alt="${descr1}" style="width: 50px; height: 50px; display: inline;">
+                                    <p>${descr1}</p>
+                                    <p>${wind1} mph wind</p>
+                                    <p>${humidity1} % humidity</p>
+                                </div>
+                            </div>
+                        `);
                         //! DAY TWO
                         let unix2 = parseInt(data.list[12].dt)
                         let unix2Formatted = new Date(unix2 * 1000)
