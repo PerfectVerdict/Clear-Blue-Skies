@@ -155,64 +155,140 @@ $(document).ready(function () {
                                 <p>${wind} mph wind</p>
                                 <p>${humidity} % humidity</p>
                             </div>
-                        </div>
-                        <div class="div2">
-                            <p>${unix1Time}</p>
-                            <p>${tempFahrenheit.toFixed(2)} F</p>
-                            <div class="column">
-                                <img src="http://openweathermap.org/img/w/${icon}.png" alt="${descr}" style="width: 50px; height: 50px; display: inline;">
-                                <p>${descr}</p>
-                            </div>
-                        </div>
-                    </div1>`);
+                        </div>`);
 
 //! DAY TWO
-                        let unix2 = parseInt(data.list[5].dt)
+                        let unix2 = parseInt(data.list[9].dt)
                         let unix2Formatted = new Date(unix2 * 1000)
                         let unix2Date = unix2Formatted.toDateString()
                         let unix2Time = unix1Formatted.toLocaleTimeString()
-                        let tempKelvin2 = data.list[5].main.temp;
+                        let tempKelvin2 = data.list[9].main.temp;
                         let tempFahrenheit2 = kelvinToFahrenheit(tempKelvin2);
-                        let icon2 = data.list[5].weather[0].icon
-                        console.log(succinct)
-                        let descr2 = data.list[5].weather[0].description
+                        let icon2 = data.list[9].weather[0].icon
+                        let descr2 = data.list[9].weather[0].description
                         let imgForIcon2 = $("<img>")
+                        imgForIcon.css({
+                            "width": "50px",  // Set your desired width
+                            "height": "50px",  // Set your desired height
+                            "display": "inline"
+                        });
                         imgForIcon2.attr("src", "http://openweathermap.org/img/w/" + icon2 + ".png")
-                        let wind2 = data.list[5].wind.speed;
-                        let humidity2 = data.list[5].main.humidity;
-                        dayTwo.append(`<p>Date: ${unix2Date}</p><p>Time: ${unix2Time}<p>Temperature: ${tempFahrenheit2.toFixed(2)}</p>`);
-                        dayTwo.append(imgForIcon2).append(descr2)
-                        dayTwo.append(`<p>Wind: ${wind2}</p><p>Humidity: ${humidity2}</p>`)
-                        //! DAY THREE
-                        let unix3 = parseInt(data.list[13].dt)
+                        let wind2 = data.list[9].wind.speed;
+                        let humidity2 = data.list[9].main.humidity;
+                        dayTwo.append(`
+                        <div class="cardDate">
+                    <p>${unix2Date}</p>
+                    </div>
+                    <div1 id="container">
+                        <div class="div2">
+                            <p>${unix2Time}</p>
+                            <p>${tempFahrenheit2.toFixed(2)} F</p>
+                            <div class="column">
+                                <img src="http://openweathermap.org/img/w/${icon2}.png" alt="${descr2}" style="width: 50px; height: 50px; display: inline;">
+                                <p>${descr2}</p>
+                                <p>${wind2} mph wind</p>
+                                <p>${humidity2} % humidity</p>
+                            </div>
+                        </div>`);
+                        //! DAY THR
+                        let unix3 = parseInt(data.list[16].dt)
                         let unix3Formatted = new Date(unix3 * 1000)
                         let unix3Date = unix3Formatted.toDateString()
                         let unix3Time = unix3Formatted.toLocaleTimeString()
-                        let tempKelvin3 = data.list[13].main.temp;
+                        let tempKelvin3 = data.list[16].main.temp;
                         let tempFahrenheit3 = kelvinToFahrenheit(tempKelvin3);
-                        let wind3 = data.list[13].wind.speed;
-                        let humidity3 = data.list[13].main.humidity;
-                        dayThree.append(`<p>Date: ${unix3Date}</p><p>Time: ${unix3Time}</p><p>Temperature: ${tempFahrenheit3.toFixed(2)}</p><p>Wind: ${wind3}</p><p>Humidity: ${humidity3}</p>`);
+                        let wind3 = data.list[16].wind.speed;
+                        let humidity3 = data.list[16].main.humidity;
+                        let icon3 = data.list[16].weather[0].icon
+                        let descr3 = data.list[16].weather[0].description
+                        let imgForIcon3 = $("<img>")
+                        imgForIcon3.css({
+                            "width": "50px",  // Set your desired width
+                            "height": "50px",  // Set your desired height
+                            "display": "inline"
+                        });
+                        imgForIcon3.attr("src", "http://openweathermap.org/img/w/" + icon3 + ".png")
+                        dayThree.append(`
+                        <div class="cardDate">
+                    <p>${unix3Date}</p>
+                    </div>
+                    <div1 id="container">
+                        <div class="div3">
+                            <p>${unix3Time}</p>
+                            <p>${tempFahrenheit3.toFixed(2)} F</p>
+                            <div class="column">
+                                <img src="http://openweathermap.org/img/w/${icon3}.png" alt="${descr3}" style="width: 50px; height: 50px; display: inline;">
+                                <p>${descr3}</p>
+                                <p>${wind3} mph wind</p>
+                                <p>${humidity3} % humidity</p>
+                            </div>
+                        </div>`);
                         //! DAY FOUR
-                        let unix4 = parseInt(data.list[21].dt)
+                        let unix4 = parseInt(data.list[20].dt)
                         let unix4Formatted = new Date(unix4 * 1000)
                         let unix4Date = unix4Formatted.toDateString()
                         let unix4Time = unix4Formatted.toLocaleTimeString()
-                        let tempKelvin4 = data.list[21].main.temp;
+                        let tempKelvin4 = data.list[20].main.temp;
                         let tempFahrenheit4 = kelvinToFahrenheit(tempKelvin4);
-                        let wind4 = data.list[21].wind.speed;
-                        let humidity4 = data.list[21].main.humidity;
-                        dayFour.append(`<p>Date: ${unix4Date}</p><p>Time: ${unix4Time}<p>Temperature: ${tempFahrenheit4.toFixed(2)}</p><p>Wind: ${wind4}</p><p>Humidity: ${humidity4}</p>`);
+                        let wind4 = data.list[20].wind.speed;
+                        let humidity4 = data.list[20].main.humidity;
+                        let icon4 = data.list[20].weather[0].icon
+                        let descr4 = data.list[20].weather[0].description
+                        let imgForIcon4 = $("<img>")
+                        imgForIcon4.css({
+                            "width": "50px",  // Set your desired width
+                            "height": "50px",  // Set your desired height
+                            "display": "inline"
+                        });
+                        imgForIcon4.attr("src", "http://openweathermap.org/img/w/" + icon4 + ".png")
+                        dayFour.append(`
+                        <div class="cardDate">
+                    <p>${unix4Date}</p>
+                    </div>
+                    <div1 id="container">
+                        <div class="div4">
+                            <p>${unix4Time}</p>
+                            <p>${tempFahrenheit4.toFixed(2)} F</p>
+                            <div class="column">
+                                <img src="http://openweathermap.org/img/w/${icon4}.png" alt="${descr4}" style="width: 50px; height: 50px; display: inline;">
+                                <p>${descr4}</p>
+                                <p>${wind4} mph wind</p>
+                                <p>${humidity4} % humidity</p>
+                            </div>
+                        </div>`);
                         //! DAY FIVE
-                        let unix5 = parseInt(data.list[25].dt)
+                        let unix5 = parseInt(data.list[24].dt)
                         let unix5Formatted = new Date(unix5 * 1000)
                         let unix5Date = unix5Formatted.toDateString()
                         let unix5Time = unix5Formatted.toLocaleTimeString()
-                        let tempKelvin5 = data.list[25].main.temp;
+                        let tempKelvin5 = data.list[24].main.temp;
                         let tempFahrenheit5 = kelvinToFahrenheit(tempKelvin5);
-                        let wind5 = data.list[25].wind.speed;
-                        let humidity5 = data.list[25].main.humidity;
-                        dayFive.append(`<p>Date: ${unix5Date}</p><p>Time: ${unix5Time}</p>Temperature: ${tempFahrenheit5.toFixed(2)}</p><p>Wind: ${wind5}</p><p>Humidity: ${humidity5}</p>`);
+                        let wind5 = data.list[24].wind.speed;
+                        let humidity5 = data.list[24].main.humidity;
+                        let icon5 = data.list[24].weather[0].icon
+                        let descr5 = data.list[24].weather[0].description
+                        let imgForIcon5 = $("<img>")
+                        imgForIcon5.css({
+                            "width": "50px",  // Set your desired width
+                            "height": "50px",  // Set your desired height
+                            "display": "inline"
+                        });
+                        imgForIcon5.attr("src", "http://openweathermap.org/img/w/" + icon + ".png")
+                        dayFive.append(`
+                        <div class="cardDate">
+                    <p>${unix5Date}</p>
+                    </div>
+                    <div1 id="container">
+                        <div class="div5">
+                            <p>${unix5Time}</p>
+                            <p>${tempFahrenheit5.toFixed(2)} F</p>
+                            <div class="column">
+                                <img src="http://openweathermap.org/img/w/${icon5}.png" alt="${descr5}" style="width: 50px; height: 50px; display: inline;">
+                                <p>${descr5}</p>
+                                <p>${wind5} mph wind</p>
+                                <p>${humidity5} % humidity</p>
+                            </div>
+                        </div>`);
                         console.log(data)
 
                     })
@@ -237,7 +313,7 @@ $(document).ready(function () {
         
         searchArray.push(`${city}, ${state}`)
         localStorage.setItem('searchArray', JSON.stringify(searchArray));
-        getToday(city, state)
+        // getToday(city, state)
         getData(city, state)
 
     })

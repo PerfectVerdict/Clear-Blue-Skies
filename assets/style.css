@@ -27,6 +27,10 @@ p {
     justify-content: space-around;
 }
 
-.div1, .div2 {
+.div1, .div2, .div3, .div4, .div5 {
     border: 1px solid orange;
+}
+
+.cardsContainer {
+    width: 50%;
 }
