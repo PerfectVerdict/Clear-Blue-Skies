@@ -147,21 +147,21 @@ $(document).ready(function () {
                         // use toLocalDateString() to format the date and remove the timestamp.
                         // let formattedDate = date.toLocaleDateString()
                         //convert kelvin to fehreinheit
-                        let tempKelvin = data.list[4].main.temp;
-                        let tempFahrenheit = kelvinToFahrenheit(tempKelvin);
-                        let icon = data.list[4].weather[0].icon
+                        let tempKelvin1 = data.list[4].main.temp;
+                        let tempFahrenheit1 = kelvinToFahrenheit(tempKelvin1);
+                        let icon1 = data.list[4].weather[0].icon
                         // let succinct = data.list[6].weather[6].main
                         // console.log(succinct)
-                        let descr = data.list[4].weather[0].description
-                        let imgForIcon = $("<img>")
-                        imgForIcon.css({
+                        let descr1 = data.list[4].weather[0].description
+                        let imgForIcon1 = $("<img>")
+                        imgForIcon1.css({
                             "width": "50px",  // Set your desired width
                             "height": "50px",  // Set your desired height
                             "display": "inline"
                         });
-                        imgForIcon.attr("src", "http://openweathermap.org/img/w/" + icon + ".png")
-                        let wind = data.list[4].wind.speed;
-                        let humidity = data.list[4].main.humidity;
+                        imgForIcon1.attr("src", "http://openweathermap.org/img/w/" + icon1 + ".png")
+                        let wind1 = data.list[4].wind.speed;
+                        let humidity1 = data.list[4].main.humidity;
 
                         // 2. put variables into cards
                         dayOne.append(`
@@ -172,21 +172,21 @@ $(document).ready(function () {
                         <div class="div1">
                         
                             <p>${unix1Time}</p>
-                            <p>${tempFahrenheit.toFixed(2)} F</p>
+                            <p>${tempFahrenheit1.toFixed(2)} F</p>
                             <div class="column">
-                                <img src="http://openweathermap.org/img/w/${icon}.png" alt="${descr}" style="width: 50px; height: 50px; display: inline;">
-                                <p>${descr}</p>
-                                <p>${wind} mph wind</p>
-                                <p>${humidity} % humidity</p>
+                                <img src="http://openweathermap.org/img/w/${icon1}.png" alt="${descr1}" style="width: 50px; height: 50px; display: inline;">
+                                <p>${descr1}</p>
+                                <p>${wind1} mph wind</p>
+                                <p>${humidity1} % humidity</p>
                             </div>
                         </div>
                         
                         <div class="div2">
                             <p>${unix1Time}</p>
-                            <p>${tempFahrenheit.toFixed(2)} F</p>
+                            <p>${tempFahrenheit1.toFixed(2)} F</p>
                             <div class="column">
-                                <img src="http://openweathermap.org/img/w/${icon}.png" alt="${descr}" style="width: 50px; height: 50px; display: inline;">
-                                <p>${descr}</p>
+                                <img src="http://openweathermap.org/img/w/${icon1}.png" alt="${descr1}" style="width: 50px; height: 50px; display: inline;">
+                                <p>${descr1}</p>
                             </div>
                         </div>
                     </div1>
