@@ -1,6 +1,13 @@
 $(document).ready(function () {
     //This name section is where the searched city will display at the top.
     let nameSection = $('<section>')
+
+    nameSection.attr("id", "nameSection")
+    nameSection.css({
+        "color": "black"
+    })
+    nameSection.append("History: ")
+
     const key = "78c13c7d14026703c4632a7298ef5634"
     let main = $('main')
     //If we can, set search array to the parsed value of local storage key: 'searchArray'. Otherwise, create it.
@@ -150,7 +157,7 @@ $(document).ready(function () {
                     </div>
                     <div1 id="container">
                         <div class="div1">
-                            <p>${unix1Time}</p>
+                            <p class="time">${unix1Time}</p>
                             <p>${tempFahrenheit.toFixed(2)} F</p>
                             <div class="column">
                                 <img src="http://openweathermap.org/img/w/${icon}.png" alt="${descr}" style="width: 50px; height: 50px; display: inline;">

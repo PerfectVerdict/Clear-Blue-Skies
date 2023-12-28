@@ -1,11 +1,12 @@
 /* 
 /* Larger screens */
 html {
-background-color: brown;
+background-color: #ADD8E6;
 }
 
 p {
     margin: 5px;
+    color: black;
 }
 
 .column {
@@ -32,20 +33,23 @@ p {
 }
 
 button {
-    background-color: #04AA6D; /* Green */
     border: none;
-    color: white;
-    padding: 4px 8px;
+    color: black;
+    padding: 4px 6px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-top: 5px;
   }
 
 #nameSection {
-    font-size: 20px;
+    font-size: 14px;
   }
 
 #city {
     align-self: center;
+    color: black;
+    font-size: 30px;
 }
