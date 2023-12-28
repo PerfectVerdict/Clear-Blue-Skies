@@ -27,6 +27,25 @@ p {
     justify-content: space-around;
 }
 
-.div1, .div2 {
+.div1, .div2, .div3, .div4, .div5 {
     border: 1px solid orange;
+}
+
+button {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+#nameSection {
+    font-size: 20px;
+  }
+
+#city {
+    align-self: center;
 }
