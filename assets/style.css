@@ -31,6 +31,21 @@ p {
     border: 1px solid orange;
 }
 
-.cardsContainer {
-    width: 50%;
+button {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+#nameSection {
+    font-size: 20px;
+  }
+
+#city {
+    align-self: center;
 }

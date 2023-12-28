@@ -23,6 +23,9 @@ $(document).ready(function () {
         "margin-top": "20px",
         "gap": "10px",
         "flex-direction": "column",
+        "width": "20%",
+        "margin-left": "40%",
+        "margin-right": '50%',
     })
     // convert kelvin to fahrenheit function. I realized after implementing it that this is an api feature.
     function kelvinToFahrenheit(kelvin) {
@@ -60,7 +63,8 @@ $(document).ready(function () {
         })
         .then(function (data) {
                 // name creation. append name to a newly created section. append section to main.
-                $(nameSection).append(city)
+                $(cardsContainer).append(`<span id="city">${city}</span>`)
+                main.append(cardsContainer)
                 main.append(nameSection)
                 // creates cards, & simple styling of cards.
                 let dayOne = $('<div>').attr("id", "dayOne")
