@@ -10,18 +10,11 @@ p {
 }
 
 .column {
-    display: flex;s
+    display: flex;
     flex-direction: column;
 
 }
-@media only screen and (max-width: 600px) {
-    #cardContainer {
-      flex-direction: column;
-    }
-  }
-  /* #cardContainer {
-    flex-wrap: nowrap;
-  } */
+
 .cardDate {
     text-align: center;
     margin-top: 10px; /* Adjust the margin-top as needed for spacing */
@@ -153,9 +146,10 @@ svg {
     display: block;
   }
   
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
-
+  @media only screen and (max-width: 600px) {
+    #cardContainer {
+      flex-direction: column !important;
+    }
   }
 
   
