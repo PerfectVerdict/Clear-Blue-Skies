@@ -44,9 +44,9 @@ $(document).ready(function () {
         "margin-top": "20px",
         "gap": "10px",
         "flex-direction": "row",
-        "width": "25%",
-        "margin-left": "40%",
-        "margin-right": '50%',
+        // "width": "25%",
+        // "margin-left": "40%",
+        // "margin-right": '50%',
     })
     // convert kelvin to fahrenheit function. I realized after implementing it that this is an api feature.
     function kelvinToFahrenheit(kelvin) {
@@ -93,14 +93,16 @@ $(document).ready(function () {
                 dayOne.css({
                     "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
                     "backdrop-filter": "blur(8px)", // This be the blur
-                    "padding": "30px",
+                    "border": "4px solid orange",
+                    "padding": "10px",
                     "border-radius": "20px",
                 })
                 let dayTwo = $('<div>').attr("id", "dayTwo").attr("class", "card")
                 dayTwo.css({
                     "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
                     "backdrop-filter": "blur(8px)", // This be the blur
-                    "padding": "30px",
+                    "padding": "10px",
+                    "border": "4px solid orange",
                     "border-radius": "20px",
                 })
                 let dayThree = $('<div>').attr("id", "dayThree").attr("class", "card")
@@ -108,8 +110,9 @@ $(document).ready(function () {
                 dayThree.css({
                     "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
                     "backdrop-filter": "blur(8px)", // This be the blur
-                    "padding": "30px",
+                    "padding": "10px",
                     "border-radius": "20px",
+                    "border": "4px solid orange",
 
                 })
                 let dayFour = $('<div>').attr("id", "dayFour").attr("class", "card")
@@ -118,13 +121,16 @@ $(document).ready(function () {
                     "backdrop-filter": "blur(8px)", // This be the blur
                     "padding": "30px",
                     "border-radius": "20px",
+                    "border": "4px solid orange",
                 })
                 let dayFive = $('<div>').attr("id", "dayFive").attr("class", "card")
                 dayFive.css({
                     "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
                     "backdrop-filter": "blur(8px)", // This be the blur
-                    "padding": "30px",
+                    "padding": "10px",
+                   
                     "border-radius": "20px",
+                    "border": "4px solid orange",
                 })
                 // appends cards to the container
                 cardsContainer.append(dayOne)
