@@ -181,14 +181,14 @@ $(document).ready(function () {
                         </div>`);
 
 //! DAY TWO
-                        let unix2 = parseInt(data.list[9].dt)
+                        let unix2 = parseInt(data.list[8].dt)
                         let unix2Formatted = new Date(unix2 * 1000)
                         let unix2Date = unix2Formatted.toDateString()
                         let unix2Time = unix1Formatted.toLocaleTimeString()
-                        let tempKelvin2 = data.list[9].main.temp;
+                        let tempKelvin2 = data.list[8].main.temp;
                         let tempFahrenheit2 = kelvinToFahrenheit(tempKelvin2);
-                        let icon2 = data.list[9].weather[0].icon
-                        let descr2 = data.list[9].weather[0].description
+                        let icon2 = data.list[8].weather[0].icon
+                        let descr2 = data.list[8].weather[0].description
                         let imgForIcon2 = $("<img>")
                         imgForIcon.css({
                             "width": "50px",  // Set your desired width
@@ -196,8 +196,8 @@ $(document).ready(function () {
                             "display": "inline"
                         });
                         imgForIcon2.attr("src", "http://openweathermap.org/img/w/" + icon2 + ".png")
-                        let wind2 = data.list[9].wind.speed;
-                        let humidity2 = data.list[9].main.humidity;
+                        let wind2 = data.list[8].wind.speed;
+                        let humidity2 = data.list[8].main.humidity;
                         dayTwo.append(`
                         <div class="cardDate">
                     <p>${unix2Date}</p>
@@ -247,16 +247,16 @@ $(document).ready(function () {
                             </div>
                         </div>`);
                         //! DAY FOUR
-                        let unix4 = parseInt(data.list[20].dt)
+                        let unix4 = parseInt(data.list[24].dt)
                         let unix4Formatted = new Date(unix4 * 1000)
                         let unix4Date = unix4Formatted.toDateString()
                         let unix4Time = unix4Formatted.toLocaleTimeString()
-                        let tempKelvin4 = data.list[20].main.temp;
+                        let tempKelvin4 = data.list[24].main.temp;
                         let tempFahrenheit4 = kelvinToFahrenheit(tempKelvin4);
-                        let wind4 = data.list[20].wind.speed;
-                        let humidity4 = data.list[20].main.humidity;
-                        let icon4 = data.list[20].weather[0].icon
-                        let descr4 = data.list[20].weather[0].description
+                        let wind4 = data.list[24].wind.speed;
+                        let humidity4 = data.list[24].main.humidity;
+                        let icon4 = data.list[24].weather[0].icon
+                        let descr4 = data.list[24].weather[0].description
                         let imgForIcon4 = $("<img>")
                         imgForIcon4.css({
                             "width": "50px",  // Set your desired width
@@ -280,16 +280,16 @@ $(document).ready(function () {
                             </div>
                         </div>`);
                         //! DAY FIVE
-                        let unix5 = parseInt(data.list[24].dt)
+                        let unix5 = parseInt(data.list[32].dt)
                         let unix5Formatted = new Date(unix5 * 1000)
                         let unix5Date = unix5Formatted.toDateString()
                         let unix5Time = unix5Formatted.toLocaleTimeString()
-                        let tempKelvin5 = data.list[24].main.temp;
+                        let tempKelvin5 = data.list[32].main.temp;
                         let tempFahrenheit5 = kelvinToFahrenheit(tempKelvin5);
-                        let wind5 = data.list[24].wind.speed;
-                        let humidity5 = data.list[24].main.humidity;
-                        let icon5 = data.list[24].weather[0].icon
-                        let descr5 = data.list[24].weather[0].description
+                        let wind5 = data.list[32].wind.speed;
+                        let humidity5 = data.list[32].main.humidity;
+                        let icon5 = data.list[32].weather[0].icon
+                        let descr5 = data.list[32].weather[0].description
                         let imgForIcon5 = $("<img>")
                         imgForIcon5.css({
                             "width": "50px",  // Set your desired width
