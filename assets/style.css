@@ -1,9 +1,8 @@
-/* 
-/* Larger screens */
-html {
-background-color: #ADD8E6;
-
+html,body {
+    margin:0;
+    padding:0;
 }
+
 p {
     margin: 5px;
     color: black;
@@ -68,3 +67,15 @@ button {
     position: fixed;
 }
 
+svg {
+    position: fixed;
+    bottom: 0px;
+    z-index: -1;
+    
+}
+
+#searchContainer {
+    display: flex;
+    justify-content: center;
+    
+}
