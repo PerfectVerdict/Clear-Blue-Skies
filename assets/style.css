@@ -27,6 +27,8 @@ p {
     justify-content: space-around;
 }
 
+
+
 .div1, .div2, .div3, .div4, .div5, .div1_2 {
     /* border: 3px solid #ADD8E6; */
     margin-top: 15px;
@@ -55,8 +57,12 @@ button {
     width: fit-content;
     position: fixed;
     margin-top: 40px;
+    margin-left: 40px;
   }
 
+  #history {
+    font-size: 30px;
+  }
 #city {
     align-self: center;
     color: black;
@@ -77,5 +83,7 @@ svg {
 #searchContainer {
     display: flex;
     justify-content: center;
+    margin-bottom: 90px;
+    margin-top: 40px;
     
 }

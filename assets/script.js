@@ -7,7 +7,7 @@ $(document).ready(function () {
     nameSection.css({
         "color": "black"
     })
-    nameSection.append("History: ")
+    nameSection.append("<span id='history'>History: </span>")
 
     const key = "78c13c7d14026703c4632a7298ef5634"
     let main = $('main')
