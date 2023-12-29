@@ -335,22 +335,22 @@ $(document).ready(function () {
         }
         
          // Check if the entry already exists in searchArray
-         const searchEntry = `${city}, ${state}`;
-         if (!searchArray.includes(searchEntry)) {
-             searchArray.push(searchEntry);
-             localStorage.setItem('searchArray', JSON.stringify(searchArray));
- 
-             // Append the new history button
-             let historyButton = $(`<button>${searchEntry}</button>`);
-             historyButton.on("click", function () {
-                 let buttonText = $(this).text();
-                 let [clickedCity, clickedState] = buttonText.split(', ');
- 
-                 $("#cardContainer").empty();
-                 getData(clickedCity, clickedState);
-             });
- 
-             nameSection.append(historyButton);
+        const searchEntry = `${city}, ${state}`;
+        if (!searchArray.includes(searchEntry)) {
+            searchArray.push(searchEntry);
+            localStorage.setItem('searchArray', JSON.stringify(searchArray));
+
+            // Append the new history button
+            let historyButton = $(`<button>${searchEntry}</button>`);
+            historyButton.on("click", function () {
+                let buttonText = $(this).text();
+                let [clickedCity, clickedState] = buttonText.split(', ');
+
+                $("#cardContainer").empty();
+                getData(clickedCity, clickedState);
+            });
+
+            nameSection.append(historyButton);
     }
         // getToday(city, state)
         getData(city, state)
