@@ -14,9 +14,22 @@ $(document).ready(function () {
     searchArray = JSON.parse(localStorage.getItem('searchArray')) || [];
     function renderHistory (searchArray) {
         for (let i = 0; i < searchArray.length; i++){
+            // Create a history button for each entry
+            let historyButton = $(`<button>${searchArray[i]}</button>`);
+            // Add a click event listener to the history button
+            historyButton.on("click", function () {
+                // Extract city and state from the button's text
+                let buttonText = $(this).text();
+                let [city, state] = buttonText.split(', ');
 
-            nameSection.append(`<button>${searchArray[i]}</button>`)
-        }}
+                // Call the getData function with the extracted city and state
+                $("#cardContainer").empty();
+                getData(city, state);
+            });
+            nameSection.append(historyButton);
+        }
+    }
+        
     renderHistory(searchArray)
 
     // create cards container
