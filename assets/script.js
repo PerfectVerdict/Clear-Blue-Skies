@@ -243,6 +243,24 @@ $(document).ready(function () {
                         imgForIcon2.attr("src", "http://openweathermap.org/img/w/" + icon2 + ".png")
                         let wind2 = data.list[8].wind.speed;
                         let humidity2 = data.list[8].main.humidity;
+
+                        let unix2_2 = parseInt(data.list[9].dt)
+                        let unix2_2Formatted = new Date(unix2_2 * 1000)
+                        let unix2_2Date = unix2_2Formatted.toDateString()
+                        let unix2_2Time = unix1_2Formatted.toLocaleTimeString()
+                        let tempKelvin2_2 = data.list[9].main.temp;
+                        let tempFahrenheit2_2 = kelvinToFahrenheit(tempKelvin2_2);
+                        let icon2_2 = data.list[9].weather[0].icon
+                        let descr2_2 = data.list[9].weather[0].description
+                        let imgForIcon2_2 = $("<img>")
+                        imgForIcon2_2.css({
+                            "width": "50px",  // Set your desired width
+                            "height": "50px",  // Set your desired height
+                            "display": "inline"
+                        });
+                        imgForIcon2_2.attr("src", "http://openweathermap.org/img/w/" + icon2_2 + ".png")
+                        let wind2_2 = data.list[9].wind.speed;
+                        let humidity2_2 = data.list[9].main.humidity;
                         dayTwo.append(`
                         <div class="cardDate">
                     <p>${unix2Date}</p>
@@ -257,7 +275,23 @@ $(document).ready(function () {
                                 <p>${wind2} mph wind</p>
                                 <p>${humidity2} % humidity</p>
                             </div>
-                        </div>`);
+                        </div>
+  
+
+                    <div id="container2_2">
+                        <div class="div2_2">
+                            <p>${unix2_2Time}</p>
+                            <p>${tempFahrenheit2_2.toFixed(2)} F</p>
+                            <div class="column">
+                                <img src="http://openweathermap.org/img/w/${icon2_2}.png" alt="${descr2_2}" style="width: 50px; height: 50px; display: inline;">
+                                <p>${descr2_2}</p>
+                                <p>${wind2_2} mph wind</p>
+                                <p>${humidity2_2} % humidity</p>
+                            </div>
+                        </div>
+                        
+                        
+                        `);
                         //! DAY THR
                         let unix3 = parseInt(data.list[16].dt)
                         let unix3Formatted = new Date(unix3 * 1000)
