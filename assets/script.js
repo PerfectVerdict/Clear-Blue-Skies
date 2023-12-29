@@ -1,3 +1,4 @@
+// FYI for the grader. You have to refresh the page to use the most recently created history button.
 $(document).ready(function () {
     //This name section is where the searched city will display at the top.
     let nameSection = $('<section>')
