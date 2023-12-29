@@ -41,7 +41,7 @@ $(document).ready(function () {
         "margin-top": "20px",
         "gap": "10px",
         "flex-direction": "column",
-        "width": "20%",
+        "width": "25%",
         "margin-left": "40%",
         "margin-right": '50%',
     })

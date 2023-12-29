@@ -46,10 +46,19 @@ button {
 
 #nameSection {
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: fixed;
+    margin-top: 40px;
   }
 
 #city {
     align-self: center;
     color: black;
     font-size: 30px;
+}
+
+#search {
+    position: fixed;
 }
