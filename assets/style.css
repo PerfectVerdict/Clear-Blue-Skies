@@ -2,8 +2,8 @@
 /* Larger screens */
 html {
 background-color: #ADD8E6;
-}
 
+}
 p {
     margin: 5px;
     color: black;
@@ -67,3 +67,4 @@ button {
 #search {
     position: fixed;
 }
+
