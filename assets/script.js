@@ -2,12 +2,13 @@
 $(document).ready(function () {
     //This name section is where the searched city will display at the top.
     let nameSection = $('<section>')
+    let dropdown = $('.dropdown-content')
 
     nameSection.attr("id", "nameSection")
     nameSection.css({
         "color": "black"
     })
-    nameSection.append("<span id='history'>History: </span>")
+  
 
     const key = "78c13c7d14026703c4632a7298ef5634"
     let main = $('main')
@@ -27,7 +28,7 @@ $(document).ready(function () {
                 $("#cardContainer").empty();
                 getData(city, state);
             });
-            nameSection.append(historyButton);
+            dropdown.append(historyButton);
         }
     }
         
@@ -83,7 +84,7 @@ $(document).ready(function () {
         .then(function (data) {
 
                 // name creation. append name to a newly created section. append section to main.
-                $(cardsContainer).append(`<span id="city">${city}</span>`)
+                $(cardsContainer)
                 main.append(cardsContainer)
                 main.append(nameSection)
                 // creates cards, & simple styling of cards.
