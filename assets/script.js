@@ -93,7 +93,7 @@ $(document).ready(function () {
                 dayOne.css({
                     "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
                     "backdrop-filter": "blur(8px)", // This be the blur
-                    "border": "4px solid orange",
+                    "border": "1px solid orange",
                     "padding": "10px",
                     "border-radius": "20px",
                 })
@@ -102,7 +102,7 @@ $(document).ready(function () {
                     "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
                     "backdrop-filter": "blur(8px)", // This be the blur
                     "padding": "10px",
-                    "border": "4px solid orange",
+                    "border": "1px solid orange",
                     "border-radius": "20px",
                 })
                 let dayThree = $('<div>').attr("id", "dayThree").attr("class", "card")
@@ -112,7 +112,7 @@ $(document).ready(function () {
                     "backdrop-filter": "blur(8px)", // This be the blur
                     "padding": "10px",
                     "border-radius": "20px",
-                    "border": "4px solid orange",
+                    "border": "1px solid orange",
 
                 })
                 let dayFour = $('<div>').attr("id", "dayFour").attr("class", "card")
@@ -121,7 +121,7 @@ $(document).ready(function () {
                     "backdrop-filter": "blur(8px)", // This be the blur
                     "padding": "30px",
                     "border-radius": "20px",
-                    "border": "4px solid orange",
+                    "border": "1px solid orange",
                 })
                 let dayFive = $('<div>').attr("id", "dayFive").attr("class", "card")
                 dayFive.css({
@@ -130,7 +130,7 @@ $(document).ready(function () {
                     "padding": "10px",
                    
                     "border-radius": "20px",
-                    "border": "4px solid orange",
+                    "border": "1px solid orange",
                 })
                 // appends cards to the container
                 cardsContainer.append(dayOne)
