@@ -93,7 +93,7 @@ $(document).ready(function () {
                 dayOne.css({
                     "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
                     "backdrop-filter": "blur(8px)", // This be the blur
-                    "border": "4px solid orange",
+                    "border": "1px solid orange",
                     "padding": "10px",
                     "border-radius": "20px",
                 })
@@ -102,7 +102,7 @@ $(document).ready(function () {
                     "background": "rgba(255, 255, 255, 0.2)", // Make sure this color has an opacity of less than 1
                     "backdrop-filter": "blur(8px)", // This be the blur
                     "padding": "10px",
-                    "border": "4px solid orange",
+                    "border": "1px solid orange",
                     "border-radius": "20px",
                 })
                 let dayThree = $('<div>').attr("id", "dayThree").attr("class", "card")
@@ -112,7 +112,7 @@ $(document).ready(function () {
                     "backdrop-filter": "blur(8px)", // This be the blur
                     "padding": "10px",
                     "border-radius": "20px",
-                    "border": "4px solid orange",
+                    "border": "1px solid orange",
 
                 })
                 let dayFour = $('<div>').attr("id", "dayFour").attr("class", "card")
@@ -121,7 +121,7 @@ $(document).ready(function () {
                     "backdrop-filter": "blur(8px)", // This be the blur
                     "padding": "30px",
                     "border-radius": "20px",
-                    "border": "4px solid orange",
+                    "border": "1px solid orange",
                 })
                 let dayFive = $('<div>').attr("id", "dayFive").attr("class", "card")
                 dayFive.css({
@@ -130,7 +130,7 @@ $(document).ready(function () {
                     "padding": "10px",
                    
                     "border-radius": "20px",
-                    "border": "4px solid orange",
+                    "border": "1px solid orange",
                 })
                 // appends cards to the container
                 cardsContainer.append(dayOne)
@@ -243,6 +243,24 @@ $(document).ready(function () {
                         imgForIcon2.attr("src", "http://openweathermap.org/img/w/" + icon2 + ".png")
                         let wind2 = data.list[8].wind.speed;
                         let humidity2 = data.list[8].main.humidity;
+
+                        let unix2_2 = parseInt(data.list[9].dt)
+                        let unix2_2Formatted = new Date(unix2_2 * 1000)
+                        let unix2_2Date = unix2_2Formatted.toDateString()
+                        let unix2_2Time = unix1_2Formatted.toLocaleTimeString()
+                        let tempKelvin2_2 = data.list[9].main.temp;
+                        let tempFahrenheit2_2 = kelvinToFahrenheit(tempKelvin2_2);
+                        let icon2_2 = data.list[9].weather[0].icon
+                        let descr2_2 = data.list[9].weather[0].description
+                        let imgForIcon2_2 = $("<img>")
+                        imgForIcon2_2.css({
+                            "width": "50px",  // Set your desired width
+                            "height": "50px",  // Set your desired height
+                            "display": "inline"
+                        });
+                        imgForIcon2_2.attr("src", "http://openweathermap.org/img/w/" + icon2_2 + ".png")
+                        let wind2_2 = data.list[9].wind.speed;
+                        let humidity2_2 = data.list[9].main.humidity;
                         dayTwo.append(`
                         <div class="cardDate">
                     <p>${unix2Date}</p>
@@ -257,7 +275,23 @@ $(document).ready(function () {
                                 <p>${wind2} mph wind</p>
                                 <p>${humidity2} % humidity</p>
                             </div>
-                        </div>`);
+                        </div>
+  
+
+                    <div id="container2_2">
+                        <div class="div2_2">
+                            <p>${unix2_2Time}</p>
+                            <p>${tempFahrenheit2_2.toFixed(2)} F</p>
+                            <div class="column">
+                                <img src="http://openweathermap.org/img/w/${icon2_2}.png" alt="${descr2_2}" style="width: 50px; height: 50px; display: inline;">
+                                <p>${descr2_2}</p>
+                                <p>${wind2_2} mph wind</p>
+                                <p>${humidity2_2} % humidity</p>
+                            </div>
+                        </div>
+                        
+                        
+                        `);
                         //! DAY THR
                         let unix3 = parseInt(data.list[16].dt)
                         let unix3Formatted = new Date(unix3 * 1000)
@@ -276,6 +310,27 @@ $(document).ready(function () {
                             "display": "inline"
                         });
                         imgForIcon3.attr("src", "http://openweathermap.org/img/w/" + icon3 + ".png")
+
+                        //!Day 3_2
+
+                        let unix3_2 = parseInt(data.list[17].dt)
+                        let unix3_2Formatted = new Date(unix3_2 * 1000)
+                        let unix3_2Date = unix3_2Formatted.toDateString()
+                        let unix3_2Time = unix3_2Formatted.toLocaleTimeString()
+                        let tempKelvin3_2 = data.list[17].main.temp;
+                        let tempFahrenheit3_2 = kelvinToFahrenheit(tempKelvin3_2);
+                        let wind3_2 = data.list[17].wind.speed;
+                        let humidity3_2 = data.list[17].main.humidity;
+                        let icon3_2 = data.list[17].weather[0].icon
+                        let descr3_2 = data.list[17].weather[0].description
+                        let imgForIcon3_2 = $("<img>")
+                        imgForIcon3_2.css({
+                            "width": "50px",  // Set your desired width
+                            "height": "50px",  // Set your desired height
+                            "display": "inline"
+                        });
+                        imgForIcon3_2.attr("src", "http://openweathermap.org/img/w/" + icon3 + ".png")
+
                         dayThree.append(`
                         <div class="cardDate">
                     <p>${unix3Date}</p>
@@ -290,7 +345,19 @@ $(document).ready(function () {
                                 <p>${wind3} mph wind</p>
                                 <p>${humidity3} % humidity</p>
                             </div>
-                        </div>`);
+                        </div>
+                        <div1 id="container">
+                        <div class="div3_2">
+                            <p>${unix3_2Time}</p>
+                            <p>${tempFahrenheit3_2.toFixed(2)} F</p>
+                            <div class="column">
+                                <img src="http://openweathermap.org/img/w/${icon3_2}.png" alt="${descr3_2}" style="width: 50px; height: 50px; display: inline;">
+                                <p>${descr3_2}</p>
+                                <p>${wind3_2} mph wind</p>
+                                <p>${humidity3_2} % humidity</p>
+                            </div>
+                        </div>
+                        `);
                         //! DAY FOUR
                         let unix4 = parseInt(data.list[24].dt)
                         let unix4Formatted = new Date(unix4 * 1000)
