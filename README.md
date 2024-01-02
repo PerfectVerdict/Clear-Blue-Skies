@@ -2,6 +2,7 @@
 Live Site: https://76500833.github.io/Clear-Blue-Skies/
 
 ## Description
+Clear Blue Skies is a weather app with a five day forecast displaying weather at 4pm and 7pm in the users local time.
 ![csb screenshot](https://github.com/76500833/Clear-Blue-Skies/assets/145300587/10cea6e4-5def-4f0c-838a-987ac9e0f8c9)
 
 
