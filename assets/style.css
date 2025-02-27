@@ -1,167 +1,141 @@
-html,body {
-    margin:0;
-    padding:0;
-    
+html,
+body {
+  margin: 0;
+  padding: 0;
+
 }
 
-main{
-    display: flex;
-    justify-content: center;
-    
+main {
+  display: flex;
+  justify-content: center;
+
 }
+
 p {
-    margin: 5px;
-    color: black;
+  margin: 5px;
+  color: black;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
 }
 
 .cardDate {
-    text-align: center;
-    margin-top: 10px; /* Adjust the margin-top as needed for spacing */
+  text-align: center;
+  margin-top: 10px;
+  /* Adjust the margin-top as needed for spacing */
 }
+
 #cont {
 
-        text-align: center;
-    
+  text-align: center;
+
 }
 
 #container {
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
 }
 
 
 
-.div1, .div2, .div3, .div4, .div5, .digit .div1_2, .div2_2 {
-    margin-top: 15px;
-    border-radius: 15px;
-    gap: 15px;
-    margin: 15px;
+.div1,
+.div2,
+.div3,
+.div4,
+.div5,
+.digit .div1_2,
+.div2_2 {
+  margin-top: 15px;
+  border-radius: 15px;
+  gap: 15px;
+  margin: 15px;
 }
 
 button {
-    border: none;
-    color: black;
-    padding: 4px 6px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin-left: 10px;
-    margin-top: 5px;
-  }
+  border: none;
+  color: black;
+  padding: 4px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
 
 #nameSection {
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    position: fixed;
-    margin-top: 40px;
-    margin-left: 40px;
-  }
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: fixed;
+  margin-top: 40px;
+  margin-left: 40px;
+}
 
-  /* #history {
+/* #history {
     font-size: 30px;
   } */
 #city {
-    align-self: center;
-    color: black;
-    font-size: 30px;
+  align-self: center;
+  color: black;
+  font-size: 30px;
 }
+
 
 #search {
   margin-left: 50px;
-    position: fixed;
-    z-index: 1000;
+  position: fixed;
+  z-index: 1000;
 }
 
-svg {
-    position: fixed;
-    bottom: 0px;
-    z-index: -1;
-    
-}
+
 
 #searchContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 90px;
-    margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 90px;
+  margin-top: 40px;
 
-    
-    
+
+
 }
 
-/* Dropdown*/
 
-.dropbtn {
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+
+
+/* Links inside the dropdown */
+.dropdown-content a {
   color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: inline;
+  z-index: 10000000;
 }
 
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: fixed;
-    height: 54px;
-    width: 40px;
-    text-align: center;
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  z-index: 10000000;
+}
 
-    left: 10px;
-    top: 10px;
-    z-index: 10000000;
+@media only screen and (max-width: 1029px) {
+  #cardContainer {
+    /* flex-direction: column !important; */
+    flex-wrap: wrap !important;
   }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    top: 50px;
-    padding: 10px;
-  }
+}
 
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: inline;
-    z-index: 10000000;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #f1f1f1}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    display: block;
-    z-index: 10000000;
-  }
-
-  @media only screen and (max-width: 1029px) {
-    #cardContainer {
-      /* flex-direction: column !important; */
-      flex-wrap: wrap !important;
-    }
-  }
 /* #cardContainer {
   flex-wrap:wrap !important;
 } */
-  
